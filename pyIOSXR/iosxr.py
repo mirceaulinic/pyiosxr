@@ -87,7 +87,7 @@ def __execute_config_show__(device, show_command, timeout):
 
 class IOSXR:
 
-    def __init__(self, hostname, username, password, port=22, timeout=60, logfile=None, lock=True, keepalive=900):
+    def __init__(self, hostname, username, password, port=22, timeout=60, logfile=None, lock=True, keepalive=60):
         """
         A device running IOS-XR.
 
