@@ -16,6 +16,7 @@ import re
 import sys
 import difflib
 import pexpect
+import telnetlib
 from exceptions import XMLCLIError, InvalidInputError, TimeoutError, EOFError, IteratorIDError
 
 import xml.etree.ElementTree as ET
@@ -87,14 +88,14 @@ def __execute_config_show__(device, show_command, timeout):
 
 class IOSXR:
 
-    def __init__(self, hostname, username, password, port=22, timeout=60, logfile=None, lock=True):
+    def __init__(self, hostname, username, password, port=38751, timeout=60, logfile=None, lock=True, telnet=False):
         """
         A device running IOS-XR.
 
         :param hostname:  (str) IP or FQDN of the device you want to connect to
         :param username:  (str) Username
         :param password:  (str) Password
-        :param port:      (int) SSH Port (default: 22)
+        :param port:      (int) SSH Port (default: 38751)
         :param timeout:   (int) Timeout (default: 60 sec)
         :param logfile:   File-like object to save device communication to or None to disable logging
         :param lock:      (bool) Auto-lock config upon open() if set to True, connect without locking if False (default: True)
