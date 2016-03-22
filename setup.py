@@ -28,6 +28,7 @@ version = '0.12'
 setup(
     name='pyIOSXR',
     version=version,
+    zip_safe=True,
     packages=find_packages(),
     install_requires=reqs,
     include_package_data=True,
